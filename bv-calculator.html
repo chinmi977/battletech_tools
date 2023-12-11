@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Battletech BV calculator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+  <section class="hero is-dark is-fullheight">
+    <div class="hero-head">
+    </div>
+    <div class="container ">
+      <h1 class="subtitle">
+          Battletech BV calculator
+      </h1>
+      <div class="block">
+        Your BV:<input type="tel" id="inputbv">
+      </div>
+      <div class="block">
+        Caliculated:<input type="text" id="caliculated" readonly>
+      </div>
+      <div class="block">
+        <div class="table-container">
+          <table class="table is-bordered is-striped" id="viewTable">
+            <thead>
+              <tr>
+                <th></th>
+                <th colspan="9" style="text-align: center">Pilotting</th>
+              </tr>
+              <tr>
+                <th>Gunnary</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th>0</th><td>2.42</td><td>2.31</td><td>2.21</td><td>2.1</td><td>1.93</td><td>1.75</td><td>1.68</td><td>1.59</td><td>1.5</td></tr>
+              <tr><th>1</th><td>2.21</td><td>2.11</td><td>2.02</td><td>1.92</td><td>1.76</td><td>1.6</td><td>1.54</td><td>1.446</td><td>1.38</td></tr>
+              <tr><th>2</th><td>1.93</td><td>1.85</td><td>1.76</td><td>1.68</td><td>1.54</td><td>1.4</td><td>1.35</td><td>1.28</td><td>1.21</td></tr>
+              <tr><th>3</th><td>1.66</td><td>1.58</td><td>1.51</td><td>1.44</td><td>1.32</td><td>1.2</td><td>1.16</td><td>1.1</td><td>1.04</td></tr>
+              <tr><th>4</th><td>1.38</td><td>1.32</td><td>1.26</td><td>1.2</td><td>1.1</td><td>1</td><td>0.95</td><td>0.9</td><td>0.85</td></tr>
+              <tr><th>5</th><td>1.31</td><td>1.19</td><td>1.13</td><td>1.08</td><td>0.99</td><td>0.9</td><td>0.86</td><td>0.81</td><td>0.77</td></tr>
+              <tr><th>6</th><td>1.24</td><td>1.12</td><td>1.07</td><td>1.02</td><td>0.94</td><td>0.85</td><td>0.81</td><td>0.77</td><td>0.72</td></tr>
+              <tr><th>7</th><td>1.17</td><td>1.06</td><td>1.01</td><td>0.96</td><td>0.88</td><td>0.8</td><td>0.76</td><td>0.72</td><td>0.68</td></tr>
+              <tr><th>8</th><td>1.1</td><td>0.99</td><td>0.95</td><td>0.9</td><td>0.83</td><td>0.75</td><td>0.71</td><td>0.68</td><td>0.64</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+  <script>
+  let lastTd = null;
+  const App = {};
+  App.toString = function(){
+	  return "[object App]";
+  };
+  App.init = function(){
+  	const list = document.querySelectorAll("#viewTable td");
+  	for (const td of list){
+  		td.addEventListener("click", App.onclickTd.bind(App, td));
+	  }
+    const yourInput = document.querySelector("#inputbv");
+    yourInput.addEventListener("keyup", App.onInputBv.bind(App, yourInput));
+  };
+  App.onclickTd = function(td){
+  	try{
+      if( lastTd != null) {
+        lastTd.className = "";
+      }
+      lastTd = td;
+      td.className = "is-selected";
+      let inputbv = document.getElementById("inputbv").value;
+      if( !isNaN( Number(inputbv)) ) {
+        let multi = parseFloat( td.innerText);
+        let inputFloat = parseFloat( inputbv);
+        let caliculated = multi * inputFloat;
+        document.getElementById("caliculated").value = Math.ceil( caliculated);
+      }
+      else{
+        alert( "Wrong input");
+      }
+  	}
+    catch(e){
+    }
+  };
+  App.onInputBv = function(inputBv){
+    let inputString = document.getElementById("inputbv").value;
+    if( !isNaN( Number(inputString)) && lastTd != null) {
+      let multi = parseFloat( lastTd.innerText);
+      let inputFloat = parseFloat( inputString);
+      let caliculated = multi * inputFloat;
+      document.getElementById("caliculated").value = Math.ceil( caliculated);
+    }
+  }
+
+  window.addEventListener("load", App.init.bind(App));
+  </script>
+</html>

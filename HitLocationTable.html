@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roll HitLocationTable</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+  <section class="hero is-dark is-fullheight">
+    <div class="hero-head">
+    </div>
+    <div class="container ">
+      <h1 class="subtitle">
+        Roll HitLocationTable
+      </h1>
+      <div class="block">
+        <div class="table-container">
+          <table class="table is-bordered is-striped" id="viewTable">
+            <thead>
+              <tr>
+                <th></th>
+                <th colspan="3" style="text-align: center">Location</th>
+              </tr>
+              <tr>
+                <th>2D6</th><th>Left</th><th>Front/Rrear</th><th>Right</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th>2</th><td>Left Torso [CRITICAL]</td><td>Center Torso [CRITICAL]</td><td>Right Torso [CRITICAL]</td></tr>
+              <tr><th>3</th><td>Left Leg</td><td>Right Arm</td><td>Right Leg</td></tr>
+              <tr><th>4</th><td>Left Arm</td><td>Right Arm</td><td>Right Arm</td></tr>
+              <tr><th>5</th><td>Left Arm</td><td>Right Leg</td><td>Right Arm</td></tr>
+              <tr><th>6</th><td>Left Leg</td><td>Right Torso</td><td>Right Leg</td></tr>
+              <tr><th>7</th><td>Left Torso</td><td>Center Torso</td><td>Right Torso</td></tr>
+              <tr><th>8</th><td>Center Torso</td><td>Left Torso</td><td>Center Torso</td></tr>
+              <tr><th>9</th><td>Rigth Torso</td><td>Left Leg</td><td>Left Torso</td></tr>
+              <tr><th>10</th><td>Right Arm</td><td>Left Arm</td><td>Left Arm</td></tr>
+              <tr><th>11</th><td>Right Leg</td><td>Left Arm</td><td>Left Leg</td></tr>
+              <tr><th>12</th><td>Head</td><td>Head</td><td>Head</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="columns is-centered" >
+            <input type="button" value="ROLL!" id="buttonRoll" class="button is-large">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+  <script>
+  const App = {};
+  var lastSelected;
+  App.toString = function(){
+	  return "[object App]";
+  };
+  App.init = function(){
+    const buttonRoll = document.querySelector("#buttonRoll");
+    buttonRoll.addEventListener("click", App.onClickButtonRoll.bind(App, buttonRoll));
+  };
+  App.onClickButtonRoll = function(buttonRoll){
+    if( lastSelected) {
+        lastSelected.classList.remove( "is-selected");
+    }
+    var buf = new Uint8Array(1);
+    window.crypto.getRandomValues(buf);
+    var rolld = (buf[0] % 11) + 2;// table head が2行
+    var table = document.getElementById("viewTable");
+    table.rows[rolld].classList.add( "is-selected");
+    lastSelected = table.rows[rolld];
+    //window.alert( rolld);
+  };
+
+  window.addEventListener("load", App.init.bind(App));
+  </script>
+</html>
