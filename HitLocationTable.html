@@ -60,11 +60,12 @@
     const buttonRoll = document.querySelector("#buttonRoll");
     buttonRoll.addEventListener("click", App.onClickButtonRoll.bind(App, buttonRoll));
   };
-  App.onClickButtonRoll = function(buttonRoll){
+  App.onClickButtonRoll = async function(buttonRoll){
     if( lastSelected) {
         lastSelected.classList.remove( "is-selected");
+        await mySleep( 250);
     }
-    var buf = new Uint8Array(1);
+    var buf = new Uint32Array(1);
     window.crypto.getRandomValues(buf);
     var rolld = (buf[0] % 11) + 2;// table head が2行
     var table = document.getElementById("viewTable");
@@ -72,6 +73,11 @@
     lastSelected = table.rows[rolld];
     //window.alert( rolld);
   };
+  function mySleep(time) {
+    return new Promise( (resolve) => {
+      setTimeout(resolve, time)
+    })
+  }
 
   window.addEventListener("load", App.init.bind(App));
   </script>
