@@ -41,6 +41,15 @@
     <link rel="apple-touch-startup-image" href="icons/apple-splash-1136-640.jpg" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
   </head>
   <body>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js').then(reg => {
+          console.log('サービスワーカーを登録しました', reg);
+        }).catch(err => {
+          console.log('登録失敗', err);
+        });
+      }
+    </script>
     <section class="hero is-dark is-fullheight">
       <div class="hero-head">
       </div>
