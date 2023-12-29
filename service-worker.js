@@ -1,5 +1,5 @@
 // キャッシュしたいファイルの一覧を指定 ---
-const cacheFiles = ['index.html', 'logo.svg'];
+const cacheFiles = ['index.html', 'logo.png'];
 const cacheName = 'v1';
 // インストール時に実行されるイベント ---
 self.addEventListener('install', event => {
@@ -23,6 +23,6 @@ self.addEventListener('fetch', event => {
         return response;
       });
     }).catch(function() {
-      return caches.match('logo.svg');
+      return caches.match('logo.png');
     }));
 });
