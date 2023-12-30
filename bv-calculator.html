@@ -8,41 +8,173 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-  <section class="hero is-dark is-fullheight" style="transform: rotate(0.25turn);">
-    <div class="hero-head">
-    </div>
-    <div class="container ">
-      <h1 class="subtitle">
+  <section class="is-fullheight">
+    <div class="container is-fullhd has-background-dark" style="transform: rotate(0.25turn);position: absolute;left: 0;bottom: 100%;/* width: 100%; */transform-origin: bottom left;">
+      <h1 class="subtitle has-text-white-ter mb-1">
           Battletech BV calculator
       </h1>
+      <div class="field is-horizontal is-grouped mb-0">
+        <div class="field-label">
+          <label class="label has-text-white-ter">Your BV:</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded">
+              <input class="input is-small" type="tel" id="inputbv">
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="field is-horizontal is-grouped mb-0">
+        <div class="field-label">
+          <label class="label has-text-white-ter">Caliculated:</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <p class="control is-expanded">
+              <input class="input is-small" type="text" id="caliculated" readonly>
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--
       <div class="block">
         Your BV:<input type="tel" id="inputbv">
       </div>
       <div class="block">
         Caliculated:<input type="text" id="caliculated" readonly>
       </div>
+      -->
       <div class="block">
         <div class="table-container">
-          <table class="table is-bordered is-striped" id="viewTable">
+          <table class="table is-bordered is-striped is-narrow py-0" id="viewTable">
             <thead>
               <tr>
-                <th></th>
-                <th colspan="9" style="text-align: center">Pilotting</th>
+                <th class="py-0"></th>
+                <th colspan="9" style="text-align: center" class="py-0">Pilotting</th>
               </tr>
               <tr>
-                <th>Gunnary</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th>
+                <th class="py-0">Gunnary</th>
+                <th class="py-0">0</th>
+                <th class="py-0">1</th>
+                <th class="py-0">2</th>
+                <th class="py-0">3</th>
+                <th class="py-0">4</th>
+                <th class="py-0">5</th>
+                <th class="py-0">6</th>
+                <th class="py-0">7</th>
+                <th class="py-0">8</th>
               </tr>
             </thead>
             <tbody>
-              <tr><th>0</th><td>2.42</td><td>2.31</td><td>2.21</td><td>2.1</td><td>1.93</td><td>1.75</td><td>1.68</td><td>1.59</td><td>1.5</td></tr>
-              <tr><th>1</th><td>2.21</td><td>2.11</td><td>2.02</td><td>1.92</td><td>1.76</td><td>1.6</td><td>1.54</td><td>1.446</td><td>1.38</td></tr>
-              <tr><th>2</th><td>1.93</td><td>1.85</td><td>1.76</td><td>1.68</td><td>1.54</td><td>1.4</td><td>1.35</td><td>1.28</td><td>1.21</td></tr>
-              <tr><th>3</th><td>1.66</td><td>1.58</td><td>1.51</td><td>1.44</td><td>1.32</td><td>1.2</td><td>1.16</td><td>1.1</td><td>1.04</td></tr>
-              <tr><th>4</th><td>1.38</td><td>1.32</td><td>1.26</td><td>1.2</td><td>1.1</td><td>1</td><td>0.95</td><td>0.9</td><td>0.85</td></tr>
-              <tr><th>5</th><td>1.31</td><td>1.19</td><td>1.13</td><td>1.08</td><td>0.99</td><td>0.9</td><td>0.86</td><td>0.81</td><td>0.77</td></tr>
-              <tr><th>6</th><td>1.24</td><td>1.12</td><td>1.07</td><td>1.02</td><td>0.94</td><td>0.85</td><td>0.81</td><td>0.77</td><td>0.72</td></tr>
-              <tr><th>7</th><td>1.17</td><td>1.06</td><td>1.01</td><td>0.96</td><td>0.88</td><td>0.8</td><td>0.76</td><td>0.72</td><td>0.68</td></tr>
-              <tr><th>8</th><td>1.1</td><td>0.99</td><td>0.95</td><td>0.9</td><td>0.83</td><td>0.75</td><td>0.71</td><td>0.68</td><td>0.64</td></tr>
+              <tr>
+                <th class="py-0">0</th>
+                <td class="py-0">2.42</td>
+                <td class="py-0">2.31</td>
+                <td class="py-0">2.21</td>
+                <td class="py-0">2.1</td>
+                <td class="py-0">1.93</td>
+                <td class="py-0">1.75</td>
+                <td class="py-0">1.68</td>
+                <td class="py-0">1.59</td>
+                <td class="py-0">1.5</td>
+              </tr>
+              <tr>
+                <th class="py-0">1</th>
+                <td class="py-0">2.21</td>
+                <td class="py-0">2.11</td>
+                <td class="py-0">2.02</td>
+                <td class="py-0">1.92</td>
+                <td class="py-0">1.76</td>
+                <td class="py-0">1.6</td>
+                <td class="py-0">1.54</td>
+                <td class="py-0">1.446</td>
+                <td class="py-0">1.38</td>
+              </tr>
+              <tr>
+                <th class="py-0">2</th>
+                <td class="py-0">1.93</td>
+                <td class="py-0">1.85</td>
+                <td class="py-0">1.76</td>
+                <td class="py-0">1.68</td>
+                <td class="py-0">1.54</td>
+                <td class="py-0">1.4</td>
+                <td class="py-0">1.35</td>
+                <td class="py-0">1.28</td>
+                <td class="py-0">1.21</td>
+              </tr>
+              <tr>
+                <th class="py-0">3</th>
+                <td class="py-0">1.66</td>
+                <td class="py-0">1.58</td>
+                <td class="py-0">1.51</td>
+                <td class="py-0">1.44</td>
+                <td class="py-0">1.32</td>
+                <td class="py-0">1.2</td>
+                <td class="py-0">1.16</td>
+                <td class="py-0">1.1</td>
+                <td class="py-0">1.04</td>
+              </tr>
+              <tr>
+                <th class="py-0">4</th>
+                <td class="py-0">1.38</td>
+                <td class="py-0">1.32</td>
+                <td class="py-0">1.26</td>
+                <td class="py-0">1.2</td>
+                <td class="py-0">1.1</td>
+                <td class="py-0">1</td>
+                <td class="py-0">0.95</td>
+                <td class="py-0">0.9</td>
+                <td class="py-0">0.85</td>
+              </tr>
+              <tr>
+                <th class="py-0">5</th>
+                <td class="py-0">1.31</td>
+                <td class="py-0">1.19</td>
+                <td class="py-0">1.13</td>
+                <td class="py-0">1.08</td>
+                <td class="py-0">0.99</td>
+                <td class="py-0">0.9</td>
+                <td class="py-0">0.86</td>
+                <td class="py-0">0.81</td>
+                <td class="py-0">0.77</td>
+              </tr>
+              <tr>
+                <th class="py-0">6</th>
+                <td class="py-0">1.24</td>
+                <td class="py-0">1.12</td>
+                <td class="py-0">1.07</td>
+                <td class="py-0">1.02</td>
+                <td class="py-0">0.94</td>
+                <td class="py-0">0.85</td>
+                <td class="py-0">0.81</td>
+                <td class="py-0">0.77</td>
+                <td class="py-0">0.72</td>
+              </tr>
+              <tr>
+                <th class="py-0">7</th>
+                <td class="py-0">1.17</td>
+                <td class="py-0">1.06</td>
+                <td class="py-0">1.01</td>
+                <td class="py-0">0.96</td>
+                <td class="py-0">0.88</td>
+                <td class="py-0">0.8</td>
+                <td class="py-0">0.76</td>
+                <td class="py-0">0.72</td>
+                <td class="py-0">0.68</td>
+              </tr>
+              <tr>
+                <th class="py-0">8</th>
+                <td class="py-0">1.1</td>
+                <td class="py-0">0.99</td>
+                <td class="py-0">0.95</td>
+                <td class="py-0">0.9</td>
+                <td class="py-0">0.83</td>
+                <td class="py-0">0.75</td>
+                <td class="py-0">0.71</td>
+                <td class="py-0">0.68</td>
+                <td class="py-0">0.64</td>
+              </tr>
             </tbody>
           </table>
         </div>
