@@ -42,13 +42,27 @@
   </head>
   <body>
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('service-worker.js').then(reg => {
-          console.log('サービスワーカーを登録しました', reg);
-        }).catch(err => {
-          console.log('登録失敗', err);
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistration().then (registration => {
+    const firstRegistration = (registration === undefined);
+    navigator.serviceWorker.register('service-worker.js').then(registration => {
+      // 初回登録でなければ更新が見つかったかチェックする
+      if (!firstRegistration) {
+        registration.addEventListener('updatefound', () => {
+          const installingWorker = registration.installing;
+          if (installingWorker != null) {
+            installingWorker.onstatechange = e => {
+              if (e.target.state == 'installed') {
+                // registration.unregister();  // 効果が疑わしいので保留
+                console.log('update!');
+              }
+            };
+          }
         });
       }
+    });
+  });
+}
     </script>
     <section class="hero is-dark is-fullheight">
       <div class="hero-head">
