@@ -9,127 +9,11 @@
 </head>
 <body>
   <section class="hero is-dark is-fullheight">
-    <div class="hero-head">
-      <h1 class="subtitle">
-        Battletech Shot Solving Computer
-      </h1>
-    </div>
-    <div class="hero-body">
-      <div class="container has-text-centered is-fluid">
-        <nav class="level">
-          <div class="level-left">
-            <div class="level-item">
-              <table class="table" id="viewTable">
-                <tbody>
-                  <tr><th>Gunnary Skill</th><td>0</td></tr>
-                  <tr><th>Attacker Movement</th><td>0</td></tr>
-                  <tr><th>Target Movement</th><td>0</td></tr>
-                  <tr><th>Other</th><td>0</td></tr>
-                  <tr><th>Range</th><td>0</td></tr>
-                  <tr><th>Modifier</th><td>Auto</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class="level-item">
-            <div id="Gunnery" class="content-tab" >
-              <p class="subtitle">Select Gunnery skill.</p>
-              <p>
-                <a class="button is-rounded is-small" onclick="updateGunnery(event, 1);">1</a>
-                <a class="button is-rounded is-small" onclick="updateGunnery(event, 2);">2</a>
-                <a class="button is-rounded is-small" onclick="updateGunnery(event, 3);">3</a>
-                <a class="button is-rounded is-small" onclick="updateGunnery(event, 4);">4</a>
-                <a class="button is-rounded is-small" onclick="updateGunnery(event, 5);">5</a>
-                <a class="button is-rounded is-small" onclick="updateGunnery(event, 6);">6</a>
-              </p>
-            </div>
-            <div id="Attacker" class="content-tab" style="display:none">
-              <p class="subtitle">Select Attacker movement.</p>
-              <p>
-                <a class="button is-rounded is-primary is-small" onclick="updateAttacker(event, 0, 0);">Stationary</a>
-                <a class="button is-rounded is-white is-small" onclick="updateAttacker(event, 1, 1);">Walk</a>
-                <a class="button is-rounded is-black is-small" onclick="updateAttacker(event, 2, 2);">Run</a>
-                <a class="button is-rounded is-danger is-small" onclick="updateAttacker(event, 3, 3);">Jump</a>
-                <a class="button is-rounded is-warning is-small" onclick="updateAttacker(event, 4, 2);">Prone</a>
-              </p>
-            </div>
-            <div id="Target" class="content-tab" style="display:none">
-              <p class="subtitle">Select Target movement.</p>
-              <p>
-                <div class="buttons has-addons is-right" id="targetBasic">
-                  <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 0);">0 - 2</a>
-                  <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 1);">3 - 4</a>
-                  <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 2);">5 - 6</a>
-                  <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 3);">7 - 9</a>
-                  <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 4);">10 - 17</a>
-                  <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 5);">18 - 24</a>
-                  <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 6);">25 -</a>
-                </div>
-                <div class="buttons has-addons is-right" id="targetJump">
-                  <a class="button is-rounded is-white is-small" onclick="updateTargetJump(event);">Jump</a>
-                </div>
-                <div class="buttons has-addons is-right" id="targetAdvanced">
-                  <a class="button is-rounded is-white is-small" onclick="updateTargetAdvanced(event, 0, -2);">Prone(Adjacent)</a>
-                  <a class="button is-rounded is-white is-small" onclick="updateTargetAdvanced(event, 1, 1);">Prone</a>
-                  <a class="button is-rounded is-white is-small" onclick="updateTargetAdvanced(event, 2, -4);">Immobile</a>
-                </div>
-              </p>
-            </div>
-            <div id="Other" class="content-tab" style="display:none">
-              <p class="subtitle">Terrain</p>
-              <p>Woods between</p>
-              <div class="buttons has-addons" id="woodsBetween">
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'woodsBetween', 0, 1);" modValue=1>Lv,1</a>
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'woodsBetween', 1, 2);" modValue=2>Lv,2</a>
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'woodsBetween', 2, 2);" modValue=2>Lv,1 x 2</a>
-              </div>
-              <p>Woods among</p>
-              <div class="buttons has-addons" id="woodsAmong">
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'woodsAmong', 0, 1);" modValue=1>Lv,1</a>
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'woodsAmong', 1, 2);" modValue=2>Lv,2</a>
-              </div>
-              <p>&nbsp;</p>
-              <div class="buttons has-addons" id="otherTerrain">
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'otherTerrain', 0, 1);" modValue=1>Partial cover</a>
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'otherTerrain', 1, 1);" modValue=1>Water Lv,1</a>
-              </div>
-              <p class="subtitle">2nd target</p>
-              <div class="buttons has-addons" id="seconderyTarget">
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'seconderyTarget', 0, 1);" modValue=1>forward arc</a>
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'seconderyTarget', 1, 2);" modValue=2>side or rear arc</a>
-              </div>
-              <p class="subtitle">Heat</p>
-              <div class="buttons has-addons" id="otherHeat">
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'otherHeat', 0, 1);" modValue=1>&lE; 8</a>
-                <a class="button is-rounded is-white is-small" onclick="updateOther(event, 'otherHeat', 1, 2);" modValue=2>&lE;13</a>
-              </div>
-            </div>
-            <div id="Range" class="content-tab" style="display:none">
-              <p class="subtitle">Select Range.</p>
-              <div class="buttons has-addons is-right">
-                <a class="button is-rounded is-white is-small" onclick="updateRange(event, 0, 0);">Short</a>
-                <a class="button is-rounded is-success is-small" onclick="updateRange(event, 1, 2);">Medium</a>
-                <a class="button is-rounded is-link is-small" onclick="updateRange(event, 2, 4);">Long</a>
-              </div>
-              <p class="title is-1"><!-- White space for adjustment.--></p>
-              <p class="subtitle is-6">Minimum</p>
-              <div class="buttons has-addons is-right">
-                <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 3, 1, 'is-inverted');">Equal</a>
-                <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 4, 2, 'is-inverted');">-1</a>
-                <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 5, 3, 'is-inverted');">-2</a>
-                <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 6, 4, 'is-inverted');">-3</a>
-                <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 7, 5, 'is-inverted');">-4</a>
-                <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 8, 6, 'is-inverted');">-5</a>
-              </div>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-  
-    <!-- Hero footer: will stick at the bottom -->
-    <div class="hero-foot">
-      <nav class="tabs is-boxed is-fullwidth">
+    <h1 class="subtitle">
+      Battletech Shot Solving Computer
+    </h1>
+    <div class="container has-text-centered is-fluid is-dark is-marginless">
+      <div class="tabs is-boxed is-fullwidth">
         <div class="container">
           <ul>
             <li class="tab is-active" onclick="openTab(event,'Gunnery')"><a>G.</a></li>
@@ -139,10 +23,146 @@
             <li class="tab" onclick="openTab(event,'Range')"><a>R.</a></li>
           </ul>
         </div>
+      </div>
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <table class="table" id="viewTable">
+              <tbody>
+                <tr><th>Gunnary Skill</th><td>0</td></tr>
+                <tr><th>Attacker Movement</th><td>0</td></tr>
+                <tr><th>Target Movement</th><td>0</td></tr>
+                <tr><th>Other</th><td>0</td></tr>
+                <tr><th>Range</th><td>0</td></tr>
+                <tr><th>Modifier</th><td>Auto</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="level-right">
+          <div id="Gunnery" class="content-tab" >
+            <p class="subtitle">Select Gunnery skill.</p>
+            <p>
+              <a class="button is-rounded is-small" onclick="updateGunnery(event, 1);">1</a>
+              <a class="button is-rounded is-small" onclick="updateGunnery(event, 2);">2</a>
+              <a class="button is-rounded is-small" onclick="updateGunnery(event, 3);">3</a>
+              <a class="button is-rounded is-small" onclick="updateGunnery(event, 4);">4</a>
+              <a class="button is-rounded is-small" onclick="updateGunnery(event, 5);">5</a>
+              <a class="button is-rounded is-small" onclick="updateGunnery(event, 6);">6</a>
+            </p>
+          </div>
+          <div id="Attacker" class="content-tab" style="display:none">
+            <p class="subtitle">Select Attacker movement.</p>
+            <p>
+              <a class="button is-rounded is-primary is-small" onclick="updateAttacker(event, 0, 0);">Stationary</a>
+              <a class="button is-rounded is-white is-small" onclick="updateAttacker(event, 1, 1);">Walk</a>
+              <a class="button is-rounded is-black is-small" onclick="updateAttacker(event, 2, 2);">Run</a>
+              <a class="button is-rounded is-danger is-small" onclick="updateAttacker(event, 3, 3);">Jump</a>
+              <a class="button is-rounded is-warning is-small" onclick="updateAttacker(event, 4, 2);">Prone</a>
+            </p>
+          </div>
+          <div id="Target" class="content-tab" style="display:none">
+            <p class="subtitle">Select Target movement.</p>
+            <p>
+              <div class="buttons has-addons is-right" id="targetBasic">
+                <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 0);">0 - 2</a>
+                <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 1);">3 - 4</a>
+                <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 2);">5 - 6</a>
+                <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 3);">7 - 9</a>
+                <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 4);">10 - 17</a>
+                <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 5);">18 - 24</a>
+                <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 6);">25 -</a>
+              </div>
+              <div class="buttons has-addons is-right" id="targetJump">
+                <a class="button is-rounded is-white is-small" onclick="updateTargetJump(event);">Jump</a>
+              </div>
+              <div class="buttons has-addons is-right" id="targetAdvanced">
+                <a class="button is-rounded is-white is-small" onclick="updateTargetAdvanced(event, 0, -2);">Prone(Adjacent)</a>
+                <a class="button is-rounded is-white is-small" onclick="updateTargetAdvanced(event, 1, 1);">Prone</a>
+                <a class="button is-rounded is-white is-small" onclick="updateTargetAdvanced(event, 2, -4);">Immobile</a>
+              </div>
+            </p>
+          </div>
+          <div id="Other" class="content-tab is-pulled-left" style="display:none">
+            <div class="columns is-mobile">
+              <div class="column">
+                <p class="subtitle">Terrain</p>
+              </div>
+            </div>
+            <div class="columns is-mobile">
+              <div class="column is-narrow">
+                <p>Woods between</p>
+                <div class="buttons has-addons" id="woodsBetween">
+                  <div class="field is-grouped">
+                    <a class="button is-white is-small" onclick="updateOther(event, 'woodsBetween', 0, 1);" modValue=1>Lv,1</a>
+                    <a class="button is-white is-small" onclick="updateOther(event, 'woodsBetween', 1, 2);" modValue=2>Lv,2</a>
+                    <a class="button is-white is-small" onclick="updateOther(event, 'woodsBetween', 2, 2);" modValue=2>Lv,1 x 2</a>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-narrow">
+                <p>Woods among</p>
+                <div class="buttons has-addons" id="woodsAmong">
+                  <div class="field is-grouped">
+                    <a class="button is-white is-small" onclick="updateOther(event, 'woodsAmong', 0, 1);" modValue=1>Lv,1</a>
+                    <a class="button is-white is-small" onclick="updateOther(event, 'woodsAmong', 1, 2);" modValue=2>Lv,2</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-mobile">
+              <div class="column is-narrow">
+                <div class="buttons has-addons" id="otherTerrain">
+                  <div class="field is-grouped">
+                    <a class="button is-white is-small" onclick="updateOther(event, 'otherTerrain', 0, 1);" modValue=1>Partial cover</a>
+                    <a class="button is-white is-small" onclick="updateOther(event, 'otherTerrain', 1, 1);" modValue=1>Water Lv,1</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns is-mobile">
+              <div class="column is-narrow">
+                <p>2nd target</p>
+                <div class="buttons has-addons" id="seconderyTarget">
+                  <div class="field is-grouped">
+                    <a class="button is-white is-small" onclick="updateOther(event, 'seconderyTarget', 0, 1);" modValue=1>forward arc</a>
+                    <a class="button is-white is-small" onclick="updateOther(event, 'seconderyTarget', 1, 2);" modValue=2>side or rear arc</a>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-narrow">
+                <p>Heat</p>
+                <div class="buttons has-addons" id="otherHeat">
+                  <div class="field is-grouped">
+                    <a class="button is-white is-small" onclick="updateOther(event, 'otherHeat', 0, 1);" modValue=1>&lE; 8</a>
+                    <a class="button is-white is-small" onclick="updateOther(event, 'otherHeat', 1, 2);" modValue=2>&lE;13</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="Range" class="content-tab" style="display:none">
+            <p class="subtitle">Select Range.</p>
+            <div class="buttons has-addons is-right">
+              <a class="button is-rounded is-white is-small" onclick="updateRange(event, 0, 0);">Short</a>
+              <a class="button is-rounded is-success is-small" onclick="updateRange(event, 1, 2);">Medium</a>
+              <a class="button is-rounded is-link is-small" onclick="updateRange(event, 2, 4);">Long</a>
+            </div>
+            <p class="title is-1"><!-- White space for adjustment.--></p>
+            <p class="subtitle is-6">Minimum</p>
+            <div class="buttons has-addons is-right">
+              <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 3, 1, 'is-inverted');">Equal</a>
+              <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 4, 2, 'is-inverted');">-1</a>
+              <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 5, 3, 'is-inverted');">-2</a>
+              <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 6, 4, 'is-inverted');">-3</a>
+              <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 7, 5, 'is-inverted');">-4</a>
+              <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 8, 6, 'is-inverted');">-5</a>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   </section>
-
 </body>
   <script>
     function openTab(evt, tabName){
