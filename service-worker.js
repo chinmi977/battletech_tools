@@ -1,6 +1,6 @@
 // キャッシュしたいファイルの一覧を指定 ---
-const cacheFiles = ['index.html', 'logo.png'];
-const cacheName = 'v1';
+const cacheFiles = ['index.html', 'bv-calculator.html', 'gator.html', 'HitLocationTable.html', 'logo.png'];
+const cacheName = 'v2';
 // インストール時に実行されるイベント ---
 self.addEventListener('install', event => {
   // キャッシュしたいファイルを指定

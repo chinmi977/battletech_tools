@@ -4,23 +4,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Battletech G.A.T.O.R. Template</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-  <section class="hero is-dark is-fullheight">
-    <h1 class="subtitle">
+  <section class="hero has-background-grey-dark is-fullheight">
+    <h1 class="subtitle has-text-white-ter">
       Battletech Shot Solving Computer
     </h1>
-    <div class="container has-text-centered is-fluid is-dark is-marginless">
+    <div class="container has-text-centered is-fluid is-marginless">
       <div class="tabs is-boxed is-fullwidth">
         <div class="container">
           <ul>
-            <li class="tab is-active" onclick="openTab(event,'Gunnery')"><a>G.</a></li>
-            <li class="tab" onclick="openTab(event,'Attacker')"><a>A.</a></li>
-            <li class="tab" onclick="openTab(event,'Target')"><a>T.</a></li>
-            <li class="tab" onclick="openTab(event,'Other')"><a>O.</a></li>
-            <li class="tab" onclick="openTab(event,'Range')"><a>R.</a></li>
+            <li class="tab is-active" onclick="openTab(event,'Gunnery')"><a class="has-text-white-ter has-background-primary-dark">G.</a></li>
+            <li class="tab has-text-warning-dark" onclick="openTab(event,'Attacker')"><a class="has-text-white-ter has-background-info-dark">A.</a></li>
+            <li class="tab has-text-success-dark" onclick="openTab(event,'Target')"><a class="has-text-white-ter has-background-success-dark">T.</a></li>
+            <li class="tab has-text-info-dark" onclick="openTab(event,'Other')"><a class="has-text-white-ter has-background-warning-dark">O.</a></li>
+            <li class="tab has-text-link-dark" onclick="openTab(event,'Range')"><a class="has-text-white-ter has-background-danger-dark">R.</a></li>
           </ul>
         </div>
       </div>
@@ -41,7 +41,7 @@
         </div>
         <div class="level-right">
           <div id="Gunnery" class="content-tab" >
-            <p class="subtitle">Select Gunnery skill.</p>
+            <p class="subtitle has-text-white-ter">Select Gunnery skill.</p>
             <p>
               <a class="button is-rounded is-small" onclick="updateGunnery(event, 1);">1</a>
               <a class="button is-rounded is-small" onclick="updateGunnery(event, 2);">2</a>
@@ -52,7 +52,7 @@
             </p>
           </div>
           <div id="Attacker" class="content-tab" style="display:none">
-            <p class="subtitle">Select Attacker movement.</p>
+            <p class="subtitle has-text-white-ter">Select Attacker movement.</p>
             <p>
               <a class="button is-rounded is-primary is-small" onclick="updateAttacker(event, 0, 0);">Stationary</a>
               <a class="button is-rounded is-white is-small" onclick="updateAttacker(event, 1, 1);">Walk</a>
@@ -62,7 +62,7 @@
             </p>
           </div>
           <div id="Target" class="content-tab" style="display:none">
-            <p class="subtitle">Select Target movement.</p>
+            <p class="subtitle has-text-white-ter">Select Target movement.</p>
             <p>
               <div class="buttons has-addons is-right" id="targetBasic">
                 <a class="button is-rounded is-white is-small" onclick="updateTarget(event, 0);">0 - 2</a>
@@ -86,12 +86,12 @@
           <div id="Other" class="content-tab is-pulled-left" style="display:none">
             <div class="columns is-mobile">
               <div class="column">
-                <p class="subtitle">Terrain</p>
+                <p class="subtitle has-text-white-ter">Terrain</p>
               </div>
             </div>
             <div class="columns is-mobile">
               <div class="column is-narrow">
-                <p>Woods between</p>
+                <p class="has-text-white-ter">Woods between</p>
                 <div class="buttons has-addons" id="woodsBetween">
                   <div class="field is-grouped">
                     <a class="button is-white is-small" onclick="updateOther(event, 'woodsBetween', 0, 1);" modValue=1>Lv,1</a>
@@ -101,7 +101,7 @@
                 </div>
               </div>
               <div class="column is-narrow">
-                <p>Woods among</p>
+                <p class="has-text-white-ter">Woods among</p>
                 <div class="buttons has-addons" id="woodsAmong">
                   <div class="field is-grouped">
                     <a class="button is-white is-small" onclick="updateOther(event, 'woodsAmong', 0, 1);" modValue=1>Lv,1</a>
@@ -122,7 +122,7 @@
             </div>
             <div class="columns is-mobile">
               <div class="column is-narrow">
-                <p>2nd target</p>
+                <p class="has-text-white-ter">2nd target</p>
                 <div class="buttons has-addons" id="seconderyTarget">
                   <div class="field is-grouped">
                     <a class="button is-white is-small" onclick="updateOther(event, 'seconderyTarget', 0, 1);" modValue=1>forward arc</a>
@@ -131,7 +131,7 @@
                 </div>
               </div>
               <div class="column is-narrow">
-                <p>Heat</p>
+                <p class="has-text-white-ter">Heat</p>
                 <div class="buttons has-addons" id="otherHeat">
                   <div class="field is-grouped">
                     <a class="button is-white is-small" onclick="updateOther(event, 'otherHeat', 0, 1);" modValue=1>&lE; 8</a>
@@ -142,14 +142,14 @@
             </div>
           </div>
           <div id="Range" class="content-tab" style="display:none">
-            <p class="subtitle">Select Range.</p>
+            <p class="subtitle has-text-white-ter">Select Range.</p>
             <div class="buttons has-addons is-right">
               <a class="button is-rounded is-white is-small" onclick="updateRange(event, 0, 0);">Short</a>
               <a class="button is-rounded is-success is-small" onclick="updateRange(event, 1, 2);">Medium</a>
               <a class="button is-rounded is-link is-small" onclick="updateRange(event, 2, 4);">Long</a>
             </div>
             <p class="title is-1"><!-- White space for adjustment.--></p>
-            <p class="subtitle is-6">Minimum</p>
+            <p class="subtitle is-6 has-text-white-ter">Minimum</p>
             <div class="buttons has-addons is-right">
               <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 3, 1, 'is-inverted');">Equal</a>
               <a class="button is-rounded is-warning is-small" onclick="updateRange(event, 4, 2, 'is-inverted');">-1</a>
