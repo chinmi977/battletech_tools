@@ -2,6 +2,9 @@
   "name": "Battletech Tools",
   "short_name": "BTtools",
   "description": "Homebrew Battletech Tools.",
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "homepage_url": "https://github.com/chinmi977/battletech_tools",
   "icons": [
     {
       "src": "icons/manifest-icon-192.maskable.png",
