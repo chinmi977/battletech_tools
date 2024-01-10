@@ -42,10 +42,10 @@
   </head>
   <body>
     <script>
-const appVersion = '0.0.1';
+const appVersion = '0.0.2';
 
 window.onload = (event) => {
-  document.getElementById('appVersion').innerHTML = appVersion;
+  document.getElementById('appVersion').innerHTML = 'app version: ' + appVersion;
 };
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistration().then (registration => {
@@ -71,22 +71,21 @@ if ('serviceWorker' in navigator) {
     </script>
     <section class="hero is-dark is-fullheight">
       <div class="hero-head">
-      </div>
-      <div class="container ">
-        <h1 class="subtitle">
-          Homebrew Battletech Tools
-        </h1>
-        <div class="buttons">
-          <button class="button is-link is-fullwidth" onclick="location.href='./bv-calculator.html'">BV calculator</button>
-          <button class="button is-link is-fullwidth" style="height:auto;" onclick="location.href='./gator.html'">Battletech Shot Solving Computer<br>(G.A.T.O.R. Template)</button>
-          <button class="button is-link is-fullwidth" onclick="location.href='./HitLocationTable.html'">Roll Hit Location Table</button>
+        <div class="container has-text-centered">
+          <p class="title">
+            Homebrew Battletech Tools
+          </p>
+          <div class="buttons">
+            <button class="button is-link is-fullwidth" onclick="location.href='./bv-calculator.html'">BV calculator</button>
+            <button class="button is-link is-fullwidth" style="height:auto;" onclick="location.href='./gator.html'">Battletech Shot Solving Computer<br>(G.A.T.O.R. Template)</button>
+            <button class="button is-link is-fullwidth" onclick="location.href='./HitLocationTable.html'">Roll Hit Location Table</button>
+          </div>
         </div>
       </div>
-      <footer class="footer">
+      <div class="hero-body">
+      </div>
+      <footer class="hero-foot">
         <div class="content has-text-centered">
-          <p>
-            app version:
-          </p>
           <p id="appVersion"></p>
         </div>
       </footer>
