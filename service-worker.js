@@ -1,14 +1,28 @@
 // キャッシュしたいファイルの一覧を指定 ---
 const cacheFiles = ['index.html', 'bv-calculator.html', 'gator.html', 'HitLocationTable.html', 'logo.png'];
-const cacheName = 'v5';
+const cacheName = 'v6';
 // インストール時に実行されるイベント ---
 self.addEventListener('install', event => {
   // キャッシュしたいファイルを指定
   caches.open(cacheName).then(cache => cache.addAll(cacheFiles));
 });
 // インストール後に実行されるイベント
+function deleteOldCache() {
+  caches.keys().then( (keyList) => 
+    Promise.all(
+      keyList.map( (key) => {
+        if( key === cacheName) {
+        }
+        else {
+          return caches.delete( key);
+        }
+      })
+    )
+  )
+}
 self.addEventListener('activate', event => {
-  // 必要に応じて古いキャッシュの削除処理などを行う
+  // 古いキャッシュの削除処理
+  event.waitUntil(deleteOldCache());
 });
 // fetchイベント
 self.addEventListener('fetch', event => {
