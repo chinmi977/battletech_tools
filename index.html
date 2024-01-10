@@ -42,7 +42,7 @@
   </head>
   <body>
     <script>
-const appVersion = '0.0.2';
+const appVersion = '0.0.3';
 
 window.onload = (event) => {
   document.getElementById('appVersion').innerHTML = 'app version: ' + appVersion;
@@ -59,7 +59,9 @@ if ('serviceWorker' in navigator) {
             installingWorker.onstatechange = e => {
               if (e.target.state == 'installed') {
                 // registration.unregister();  // 効果が疑わしいので保留
-                console.log('update!');
+                var viewAppVersion = document.getElementById('appVersion').innerHTML;
+                viewAppVersion = viewAppVersion + '(update!)';
+                document.getElementById('appVersion').innerHTML = viewAppVersion;
               }
             };
           }
