@@ -42,6 +42,11 @@
   </head>
   <body>
     <script>
+const appVersion = '0.0.1';
+
+window.onload = (event) => {
+  document.getElementById('appVersion').innerHTML = appVersion;
+};
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.getRegistration().then (registration => {
     const firstRegistration = (registration === undefined);
@@ -77,6 +82,14 @@ if ('serviceWorker' in navigator) {
           <button class="button is-link is-fullwidth" onclick="location.href='./HitLocationTable.html'">Roll Hit Location Table</button>
         </div>
       </div>
+      <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            app version:
+          </p>
+          <p id="appVersion"></p>
+        </div>
+      </footer>
     </section>
   </body>
 </html>
