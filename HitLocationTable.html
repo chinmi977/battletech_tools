@@ -62,12 +62,12 @@
   };
   App.onClickButtonRoll = async function(buttonRoll){
     if( lastSelected) {
-        lastSelected.classList.remove( "is-selected");
-        await mySleep( 200);
+      lastSelected.classList.remove( "is-selected");
+      await mySleep( 200);
     }
-    var buf = new Uint32Array(1);
+    var buf = new Uint32Array(2);
     window.crypto.getRandomValues(buf);
-    var rolld = (buf[0] % 11) + 2;// table head が2行
+    var rolld = buf.reduce( (previous, current) => previous + (current % 6), 0) + 2;// table head が2行
     var table = document.getElementById("viewTable");
     table.rows[rolld].classList.add( "is-selected");
     lastSelected = table.rows[rolld];

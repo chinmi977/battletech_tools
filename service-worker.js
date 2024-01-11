@@ -1,6 +1,6 @@
 // キャッシュしたいファイルの一覧を指定 ---
 const cacheFiles = ['index.html', 'bv-calculator.html', 'gator.html', 'HitLocationTable.html', 'logo.png'];
-const cacheName = 'v6';
+const cacheName = 'v7';
 // インストール時に実行されるイベント ---
 self.addEventListener('install', event => {
   // キャッシュしたいファイルを指定
@@ -28,10 +28,10 @@ self.addEventListener('activate', event => {
 self.addEventListener('fetch', event => {
   // キャッシュがあればそれを返す ---
   event.respondWith(
-    caches.match(event.request).then(function(resp) {
-      return resp || fetch(event.request).then(function(response) {
+    caches.match(event.request).then( (resp) => {
+      return resp || fetch(event.request).then( (response) => {
         let responseClone = response.clone();
-        caches.open(cacheName).then(function(cache) {
+        caches.open(cacheName).then( (cache) => {
           cache.put(event.request, responseClone);
         });
         return response;
