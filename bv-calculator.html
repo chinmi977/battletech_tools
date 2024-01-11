@@ -8,45 +8,45 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 <body>
-  <section class="is-fullheight">
-    <div class="container is-fullhd has-background-dark" style="transform: rotate(0.25turn);position: absolute;left: 0;bottom: 100%;/* width: 100%; */transform-origin: bottom left;">
+  <!--<section class="section is-large has-background-dark is-max-widescreen" style="transform: rotate(0.25turn);position: absolute;left: 0;bottom: 100%;/* width: 100%; */transform-origin: bottom left;">-->
+    <div class="container has-background-dark">
       <h1 class="subtitle has-text-white-ter mb-1">
           Battletech BV calculator
       </h1>
-      <div class="field is-horizontal is-grouped mb-0">
-        <div class="field-label">
-          <label class="label has-text-white-ter">Your BV:</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control is-expanded">
-              <input class="input is-small" type="tel" id="inputbv">
-            </p>
+      <div class="columns is-centered">
+        <div class="column is-half pb-0">
+          <div class="field is-horizontal is-grouped mb-0">
+            <div class="field-label">
+              <label class="label has-text-white-ter">Your BV:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded">
+                  <input class="input is-small" type="tel" id="inputbv">
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="field is-horizontal is-grouped mb-0">
-        <div class="field-label">
-          <label class="label has-text-white-ter">Caliculated:</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control is-expanded">
-              <input class="input is-small" type="text" id="caliculated" readonly>
-            </p>
+      <div class="columns is-centered mb-0">
+        <div class="column is-half py-0">
+          <div class="field is-horizontal is-grouped mb-0">
+            <div class="field-label">
+              <label class="label has-text-white-ter">Caliculated:</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <p class="control is-expanded">
+                  <input class="input is-small" type="text" id="caliculated" readonly>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <!--
-      <div class="block">
-        Your BV:<input type="tel" id="inputbv">
-      </div>
-      <div class="block">
-        Caliculated:<input type="text" id="caliculated" readonly>
-      </div>
-      -->
-      <div class="block">
-        <div class="table-container">
+      <div class="columns is-centered">
+        <div class="column is-half">
           <table class="table is-bordered is-striped is-narrow py-0" id="viewTable">
             <thead>
               <tr>
@@ -180,7 +180,6 @@
         </div>
       </div>
     </div>
-  </section>
 
 </body>
   <script>
