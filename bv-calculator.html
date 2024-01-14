@@ -10,15 +10,15 @@
 <body>
   <!--<section class="section is-large has-background-dark is-max-widescreen" style="transform: rotate(0.25turn);position: absolute;left: 0;bottom: 100%;/* width: 100%; */transform-origin: bottom left;">-->
   <section class="hero has-background-dark">
+    <div class="hero-head has-text-centered">
+      <p class="subtitle has-text-white-ter">
+        Battletech BV calculator
+      </p>
+    </div>
     <div class="hero-body py-0 my-0">
-      <div class="container has-text-centered">
-        <p class="title has-text-white-ter">
-          Battletech BV calculator
-        </p>
-      </div>
       <div class="container my-0 py-0">
         <div class="columns my-0 py-0">
-          <div class="column"></div><!--blank column for layout-->
+          <div class="column my-0 py-0"></div><!--blank column for layout-->
           <div class="column is-half my-0 py-0">
             <div class="field is-centered is-horizontal is-grouped mb-0">
               <div class="field-label">
@@ -56,10 +56,10 @@
           </div>
         </div>
       </div>
-      <div class="container has-text-centered">
-        <div class="columns">
+      <div class="container my-0 py-0">
+        <div class="columns my-0 py-0">
           <div class="column"></div><!--blank column for layout-->
-          <div class="column">
+          <div class="column my-0 py-0">
             <table class="table is-bordered is-striped is-narrow py-0" id="viewTable">
               <thead>
                 <tr>
@@ -196,174 +196,6 @@
       </div>
     </div>
   </section>
-    <!--<div class="container has-background-dark">
-      <div class="columns is-centered">
-        <div class="column is-half pb-0">
-          <h1 class="subtitle has-text-white-ter mb-1">
-              Battletech BV calculator
-          </h1>
-        </div>
-      </div>
-      <div class="field is-centered is-horizontal is-grouped mb-0">
-        <div class="field-label">
-          <label class="label has-text-white-ter">Your BV:</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control is-expanded">
-              <input class="input is-small" type="tel" id="inputbv">
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="field is-centered is-horizontal is-grouped mb-0">
-        <div class="field-label">
-          <label class="label has-text-white-ter">Caliculated:</label>
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <p class="control is-expanded">
-              <input class="input is-small" type="text" id="caliculated" readonly>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="columns is-centered">
-        <div class="column is-half">
-          <table class="table is-bordered is-striped is-narrow py-0" id="viewTable">
-            <thead>
-              <tr>
-                <th class="py-0"></th>
-                <th colspan="9" style="text-align: center" class="py-0">Pilotting</th>
-              </tr>
-              <tr>
-                <th class="py-0">Gunnary</th>
-                <th class="py-0">0</th>
-                <th class="py-0">1</th>
-                <th class="py-0">2</th>
-                <th class="py-0">3</th>
-                <th class="py-0">4</th>
-                <th class="py-0">5</th>
-                <th class="py-0">6</th>
-                <th class="py-0">7</th>
-                <th class="py-0">8</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th class="py-0">0</th>
-                <td class="py-0">2.42</td>
-                <td class="py-0">2.31</td>
-                <td class="py-0">2.21</td>
-                <td class="py-0">2.1</td>
-                <td class="py-0">1.93</td>
-                <td class="py-0">1.75</td>
-                <td class="py-0">1.68</td>
-                <td class="py-0">1.59</td>
-                <td class="py-0">1.5</td>
-              </tr>
-              <tr>
-                <th class="py-0">1</th>
-                <td class="py-0">2.21</td>
-                <td class="py-0">2.11</td>
-                <td class="py-0">2.02</td>
-                <td class="py-0">1.92</td>
-                <td class="py-0">1.76</td>
-                <td class="py-0">1.6</td>
-                <td class="py-0">1.54</td>
-                <td class="py-0">1.446</td>
-                <td class="py-0">1.38</td>
-              </tr>
-              <tr>
-                <th class="py-0">2</th>
-                <td class="py-0">1.93</td>
-                <td class="py-0">1.85</td>
-                <td class="py-0">1.76</td>
-                <td class="py-0">1.68</td>
-                <td class="py-0">1.54</td>
-                <td class="py-0">1.4</td>
-                <td class="py-0">1.35</td>
-                <td class="py-0">1.28</td>
-                <td class="py-0">1.21</td>
-              </tr>
-              <tr>
-                <th class="py-0">3</th>
-                <td class="py-0">1.66</td>
-                <td class="py-0">1.58</td>
-                <td class="py-0">1.51</td>
-                <td class="py-0">1.44</td>
-                <td class="py-0">1.32</td>
-                <td class="py-0">1.2</td>
-                <td class="py-0">1.16</td>
-                <td class="py-0">1.1</td>
-                <td class="py-0">1.04</td>
-              </tr>
-              <tr>
-                <th class="py-0">4</th>
-                <td class="py-0">1.38</td>
-                <td class="py-0">1.32</td>
-                <td class="py-0">1.26</td>
-                <td class="py-0">1.2</td>
-                <td class="py-0">1.1</td>
-                <td class="py-0">1</td>
-                <td class="py-0">0.95</td>
-                <td class="py-0">0.9</td>
-                <td class="py-0">0.85</td>
-              </tr>
-              <tr>
-                <th class="py-0">5</th>
-                <td class="py-0">1.31</td>
-                <td class="py-0">1.19</td>
-                <td class="py-0">1.13</td>
-                <td class="py-0">1.08</td>
-                <td class="py-0">0.99</td>
-                <td class="py-0">0.9</td>
-                <td class="py-0">0.86</td>
-                <td class="py-0">0.81</td>
-                <td class="py-0">0.77</td>
-              </tr>
-              <tr>
-                <th class="py-0">6</th>
-                <td class="py-0">1.24</td>
-                <td class="py-0">1.12</td>
-                <td class="py-0">1.07</td>
-                <td class="py-0">1.02</td>
-                <td class="py-0">0.94</td>
-                <td class="py-0">0.85</td>
-                <td class="py-0">0.81</td>
-                <td class="py-0">0.77</td>
-                <td class="py-0">0.72</td>
-              </tr>
-              <tr>
-                <th class="py-0">7</th>
-                <td class="py-0">1.17</td>
-                <td class="py-0">1.06</td>
-                <td class="py-0">1.01</td>
-                <td class="py-0">0.96</td>
-                <td class="py-0">0.88</td>
-                <td class="py-0">0.8</td>
-                <td class="py-0">0.76</td>
-                <td class="py-0">0.72</td>
-                <td class="py-0">0.68</td>
-              </tr>
-              <tr>
-                <th class="py-0">8</th>
-                <td class="py-0">1.1</td>
-                <td class="py-0">0.99</td>
-                <td class="py-0">0.95</td>
-                <td class="py-0">0.9</td>
-                <td class="py-0">0.83</td>
-                <td class="py-0">0.75</td>
-                <td class="py-0">0.71</td>
-                <td class="py-0">0.68</td>
-                <td class="py-0">0.64</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>-->
-
 </body>
   <script>
   let lastTd = null;
@@ -382,10 +214,12 @@
   App.onclickTd = function(td){
   	try{
       if( lastTd != null) {
-        lastTd.className = "";
+        //lastTd.className = "";
+        lastTd.classList.remove("is-selected");
       }
       lastTd = td;
-      td.className = "is-selected";
+      //td.className = "is-selected";
+      td.classList.add("is-selected");
       let inputbv = document.getElementById("inputbv").value;
       if( !isNaN( Number(inputbv)) ) {
         let multi = parseFloat( td.innerText);
